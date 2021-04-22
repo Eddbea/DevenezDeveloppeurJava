@@ -8,7 +8,7 @@ public abstract class Vaisseau {
     int quantiteRejetee;
     int tonnageMax;
     int tonnageActuel;
-    TypeVaisseau type;
+    public TypeVaisseau type;
 
 
     void activerBouclier(){

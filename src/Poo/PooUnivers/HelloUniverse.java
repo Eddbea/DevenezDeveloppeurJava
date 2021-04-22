@@ -238,7 +238,7 @@ public class HelloUniverse {
         System.out.println("Le vaisseau-monde a rejete " +vaisseauMondeSurTerre.emporterCargaison(1560)+ " tonnes.");
         System.out.println("Le vaisseau-monde " +vaisseauMondeSurTerre.emporterCargaison(600)+ " tonnes.");
 
- */
+
 
         Vaisseau chasseur = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
         Vaisseau croiseur = new VaisseauDeGuerre(TypeVaisseau.CROISEUR);
@@ -280,7 +280,7 @@ public class HelloUniverse {
               break;
       }
 
-      PlaneteTellurique planete = null;
+      PlaneteTellurique planete=null;
         switch (quellePlaneteTellurique){
             case "Mercure" :
                 planete = mercure;
@@ -338,30 +338,28 @@ public class HelloUniverse {
         if (uranus.atmosphere.tauxSodium!=null) {
             System.out.println("de sodium à " + uranus.atmosphere.tauxSodium + "%");
         }
+        */
 
-        Scanner scan = new Scanner(System.in);
-        String choice = scan.nextLine();
 
-        do {
-            System.out.println("Un Vaisseau arrive vers une nouvelle planete... ?");
+
+            TypeVaisseau typeVaisseau = TypeVaisseau.valueOf("CROISEUR");
+            System.out.println("Un Vaisseau arrive vers une nouvelle planete, accueil de gPasdePlace, combien etes vous ?");
+            System.out.println("Un Vaisseau arrive vers une nouvelle planete...");
+
             PlaneteTellurique gPasDePlace;
             gPasDePlace = new PlaneteTellurique("gPasDePlace");
             VaisseauCivil Jaquouille = new VaisseauCivil(typeVaisseau.VAISSEAUMONDE);
             System.out.println("Bonjour, y a t il de la place disponible chez vous ?");
             gPasDePlace.restePlaceDisponible(1);
+
             System.out.println("Voulez vous recommencer oui/non ?");
-        }
-        while(choice.equals("oui"));
-        {
 
+            Scanner scan = new Scanner(System.in);
+            String choice = scan.nextLine();
 
-
-
-
-
+                if(choice.equals("oui")){
 
 
         }
 
     }
-}

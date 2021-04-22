@@ -2,7 +2,7 @@ package Poo.PooUnivers;
 
 public class PlaneteTellurique extends Planete implements Habitable {
 
-    int[] baieAccostage;
+    int[] baieAccostage = new int[0];
 
     PlaneteTellurique(String nom) {
         super(nom);
@@ -30,19 +30,23 @@ public class PlaneteTellurique extends Planete implements Habitable {
 
     @Override
     public boolean restePlaceDisponible(int nbVaisseauArrivant) {
-        System.out.println(baieAccostage.length);
-        boolean disponible=true;
-        nbVaisseauArrivant++;
-        int placeDisponible=nbVaisseauArrivant-baieAccostage.length;
+        System.out.println("-Bonjour, nous avons : "+baieAccostage.length+" place(s) disponible(s)" );
+        boolean disponible;
+        System.out.println("-Affichage du nombre de vaisseau qui arrive(nt) : "+nbVaisseauArrivant+ " vaisseau(x)");
+        int nbBaie=baieAccostage.length;
+        int placeDisponible=0;
+        placeDisponible=nbBaie-nbVaisseauArrivant;
+            if(placeDisponible<0){
+                placeDisponible=0;
+            }
+        System.out.println("-Affichage de la place disponible : "+placeDisponible);
             if(placeDisponible<=0){
                 disponible=false;
-                System.out.println("Le vaisseau ne peut pas se poser sur la planete par manque de place dans la baie");
+                System.out.println("-Le vaisseau ne peut pas se poser sur la planete par manque de place dans la baie");
             }
             else {
                 disponible=true;
-                System.out.println("Le nombre de place disponible est de : "+placeDisponible);
-
-                System.out.println("le nombre de place disponible est de ");
+                System.out.println("-Le nombre de place disponible est de : "+placeDisponible);
         }
         return disponible;
     }
