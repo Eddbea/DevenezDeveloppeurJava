@@ -338,5 +338,30 @@ public class HelloUniverse {
         if (uranus.atmosphere.tauxSodium!=null) {
             System.out.println("de sodium à " + uranus.atmosphere.tauxSodium + "%");
         }
+
+        Scanner scan = new Scanner(System.in);
+        String choice = scan.nextLine();
+
+        do {
+            System.out.println("Un Vaisseau arrive vers une nouvelle planete... ?");
+            PlaneteTellurique gPasDePlace;
+            gPasDePlace = new PlaneteTellurique("gPasDePlace");
+            VaisseauCivil Jaquouille = new VaisseauCivil(typeVaisseau.VAISSEAUMONDE);
+            System.out.println("Bonjour, y a t il de la place disponible chez vous ?");
+            gPasDePlace.restePlaceDisponible(1);
+            System.out.println("Voulez vous recommencer oui/non ?");
+        }
+        while(choice.equals("oui"));
+        {
+
+
+
+
+
+
+
+
+        }
+
     }
 }

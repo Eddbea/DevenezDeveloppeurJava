@@ -8,9 +8,9 @@ public class Structures2Controle {
         boolean ilFaitBeau = true;
 
         if(ageDuCapitaine > 35){
-            System.out.println("L'age du capitaine est " + ageDuCapitaine);
+            System.out.println("L'age du capitaine est " +ageDuCapitaine);
         }
-        else if (43>5){
+        if (43>5){
                 System.out.println("Oui, c'est correct !");
         }
         else{
