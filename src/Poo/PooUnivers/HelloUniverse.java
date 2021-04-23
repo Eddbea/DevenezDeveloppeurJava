@@ -340,22 +340,41 @@ public class HelloUniverse {
         }
         */
 
-  //Evolution des baies d'accostage - Le tableau unidimentionnel
+        //Evolution des baies d'accostage - Le tableau unidimentionnel
 
         Scanner scan = new Scanner(System.in);
         String choice;
-
         do {
             System.out.println("Un Vaisseau arrive vers une nouvelle planete...");
-            PlaneteTellurique gPasDePlace=new PlaneteTellurique("gPasDePlace");
-            TypeVaisseau typeVaisseau=TypeVaisseau.valueOf("CROISEUR");
-            VaisseauCivil jaquouilleLaFripouille=new VaisseauCivil(typeVaisseau.VAISSEAUMONDE);
-            gPasDePlace.restePlaceDisponible(1);
-          //jaquouilleLaFripouille.restePlaceDisponible(1);
+            PlaneteTellurique gPasDePlace = new PlaneteTellurique("gPasDePlace");
+            TypeVaisseau typeVaisseau = TypeVaisseau.valueOf("CROISEUR");
+            VaisseauCivil jaquouilleLaFripouille = new VaisseauCivil(typeVaisseau.VAISSEAUMONDE);
+            gPasDePlace.restePlaceDisponibles(1);
+            //jaquouilleLaFripouille.restePlaceDisponible(1);
             System.out.println("Voulez vous recommencer oui/non ?");
-            choice=scan.nextLine();
+            choice = scan.nextLine();
         }
-        while (choice.equals("oui"));
+        while (choice.equalsIgnoreCase("oui"));
+
+        //Correction?
+        /*
+        System.out.println("Quel tonnage souhaitez-vous emporter ?");
+        int tonnageSouhaite = sc.nextInt();
+
+        if (planeteSelectionnee.restePlaceDisponible()) {
+            planeteSelectionnee.accueillirVaisseau(vaisseauSelectionne);
+            System.out.println("Le vaisseau a rejeté : " + vaisseauSelectionne.emporterCargaison(tonnageSouhaite) + " tonnes.");
+        } else {
+            System.out.println("Le vaisseau ne peut pas se poser sur la planète par manque de place dans la baie.");
+        }
+
+        sc.nextLine();
+        System.out.println("Voulez-vous recommencer oui/non ?");
+
+        recommencer = sc.nextLine().equals("oui");
+
+
+         */
     }
 
 }

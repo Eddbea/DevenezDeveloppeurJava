@@ -2,15 +2,15 @@ package Poo.PooUnivers;
 
 public class PlaneteTellurique extends Planete implements Habitable {
 
-    int[] baieAccostage = new int[0];
+    Vaisseau[] vaisseauxAccostes;
 
     PlaneteTellurique(String nom) {
         super(nom);
     }
 
-    PlaneteTellurique(String nom, int[] baieAccostage) {
+    PlaneteTellurique(String nom, int tailleBaie) {
         super(nom);
-        this.baieAccostage = baieAccostage;
+        this.vaisseauxAccostes=new Vaisseau[tailleBaie];
     }
 
     @Override
@@ -29,24 +29,33 @@ public class PlaneteTellurique extends Planete implements Habitable {
     }
 
     @Override
-    public boolean restePlaceDisponible(int nbVaisseauArrivant) {
+    public boolean restePlaceDisponibles(int nbVaisseauArrivant) {
         System.out.println("Bonjour, y a t il de la place disponible chez vous ?");
-        System.out.println("-Bonjour, nous avons : " +baieAccostage.length+ " place(s) disponible(s)");
-        boolean disponible=false;
+        System.out.println("-Bonjour, nous avons : " + vaisseauxAccostes.length+ " place(s) disponible(s)");
         System.out.println("-Affichage du nombre de vaisseau qui arrive(nt) : " +nbVaisseauArrivant+ " vaisseau(x)");
-        int nbBaie=baieAccostage.length;
+        int nbBaie= vaisseauxAccostes.length;
         int placeDisponible=0;
         placeDisponible=nbBaie-nbVaisseauArrivant;
             if (placeDisponible<=0) {
                 placeDisponible=0;
                 System.out.println("-Affichage de la place disponible : " +placeDisponible);
                 System.out.println("-Le vaisseau ne peut pas se poser sur la planete par manque de place dans la baie");
+                return false;
             }
-            else
-                {
-                  disponible=true;
-                  System.out.println("-Le nombre de place disponible est de : " +placeDisponible);
-        }
-    return disponible;
+            else {
+                return true;
+                //System.out.println("-Le nombre de place disponible est de : " + placeDisponible);
+            }
     }
+ /*
+    boolean restePlaceDisponible(){
+        for(int index=0; index<vaisseauxAccostes.length; index++){
+            if(vaisseauxAccostes[index]==null){
+                return true;
+            }
+        }
+        return false;
+    }
+
+  */
 }

@@ -4,9 +4,9 @@ public class VaisseauCivil extends Vaisseau {
 
     VaisseauCivil(TypeVaisseau typeVaisseau) {
         this.type = typeVaisseau;
-        if (type==TypeVaisseau.CARGO) {
+        if (type == TypeVaisseau.CARGO) {
             tonnageMax = 500;
-        } else if (type==TypeVaisseau.VAISSEAUMONDE) {
+        } else if (type == TypeVaisseau.VAISSEAUMONDE) {
             tonnageMax = 2000;
         }
     }
@@ -14,11 +14,10 @@ public class VaisseauCivil extends Vaisseau {
     @Override
     int emporterCargaison(int cargaison) {
         int tonnageRestant = tonnageMax - tonnageActuel;
-        if(cargaison>tonnageRestant){
+        if (cargaison > tonnageRestant) {
             tonnageActuel = tonnageMax;
             return cargaison - tonnageRestant;
-        }
-        else {
+        } else {
             tonnageActuel = tonnageActuel + cargaison;
             return 0;
         }
@@ -26,11 +25,10 @@ public class VaisseauCivil extends Vaisseau {
 
     @Override
     public void accueillirVaisseau(Vaisseau vaisseau) {
-
     }
 
     @Override
-    public boolean restePlaceDisponible(int nbPassagerArrivant) {
+    public boolean restePlaceDisponibles(int nbPassagerArrivant) {
         return false;
     }
 }
