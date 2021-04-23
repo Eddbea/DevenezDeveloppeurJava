@@ -62,4 +62,14 @@ public class VaisseauDeGuerre extends Vaisseau{
             }
         }
     }
+
+    @Override
+    public void accueillirVaisseau(Vaisseau vaisseau) {
+
+    }
+
+    @Override
+    public boolean restePlaceDisponible(int nbPassagerArrivant) {
+        return false;
+    }
 }

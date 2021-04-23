@@ -340,26 +340,22 @@ public class HelloUniverse {
         }
         */
 
+  //Evolution des baies d'accostage - Le tableau unidimentionnel
 
+        Scanner scan = new Scanner(System.in);
+        String choice;
 
-            TypeVaisseau typeVaisseau = TypeVaisseau.valueOf("CROISEUR");
-            System.out.println("Un Vaisseau arrive vers une nouvelle planete, accueil de gPasdePlace, combien etes vous ?");
+        do {
             System.out.println("Un Vaisseau arrive vers une nouvelle planete...");
-
-            PlaneteTellurique gPasDePlace;
-            gPasDePlace = new PlaneteTellurique("gPasDePlace");
-            VaisseauCivil Jaquouille = new VaisseauCivil(typeVaisseau.VAISSEAUMONDE);
-            System.out.println("Bonjour, y a t il de la place disponible chez vous ?");
+            PlaneteTellurique gPasDePlace=new PlaneteTellurique("gPasDePlace");
+            TypeVaisseau typeVaisseau=TypeVaisseau.valueOf("CROISEUR");
+            VaisseauCivil jaquouilleLaFripouille=new VaisseauCivil(typeVaisseau.VAISSEAUMONDE);
             gPasDePlace.restePlaceDisponible(1);
-
+          //jaquouilleLaFripouille.restePlaceDisponible(1);
             System.out.println("Voulez vous recommencer oui/non ?");
-
-            Scanner scan = new Scanner(System.in);
-            String choice = scan.nextLine();
-
-                if(choice.equals("oui")){
-
-
+            choice=scan.nextLine();
         }
-
+        while (choice.equals("oui"));
     }
+
+}

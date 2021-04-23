@@ -1,6 +1,6 @@
 package Poo.PooUnivers;
 
-public abstract class Vaisseau {
+public abstract class Vaisseau implements Habitable{
 
     int nbPassagers;
     int blindage;

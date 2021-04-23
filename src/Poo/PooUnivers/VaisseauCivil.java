@@ -23,4 +23,14 @@ public class VaisseauCivil extends Vaisseau {
             return 0;
         }
     }
+
+    @Override
+    public void accueillirVaisseau(Vaisseau vaisseau) {
+
+    }
+
+    @Override
+    public boolean restePlaceDisponible(int nbPassagerArrivant) {
+        return false;
+    }
 }
