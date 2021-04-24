@@ -53,19 +53,20 @@ public class Voiture extends Vehicule implements Vidangeable, Lavable {
         return rapportCourant;
     }
 
-    /*void tourner(String droiteOuGauche, int angle) {
-        System.out.println("la voiture va tourner a " + droiteOuGauche + " d'un angle de " + angle);
-    }*/
-
-    /*Ville transporter(Passager passager, Ville villeDeDepart) {
+    Ville transporter(Passager passager, Ville villeDeDepart,Ville...villeEtapes) {
         System.out.println("La voiture transporte un passager qui s'appelle " + passager.prenom + " " + passager.nom + ".");
         System.out.println("Le passager est parti de la ville de " + villeDeDepart.nom + ".");
+
+        System.out.println("La permiere ville etape est : "+villeEtapes[0].nom);
+        System.out.println("La troisieme ville etape est : "+villeEtapes[2].nom);
+        System.out.println("il y a "+villeEtapes.length+" villes etapes");
+
 
         Ville villeDeDestination = new Ville();
         villeDeDestination.nom = "Wellington";
 
         return villeDeDestination;
-    }*/
+    }
 
     @Override
     public void vidanger() {

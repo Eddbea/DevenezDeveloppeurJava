@@ -273,5 +273,44 @@ public class HelloWorld {
         System.out.println("Le 2eme element du tableau de voiture est "+tableauDeVoiture[1].couleur);
 
         System.out.println("La taille du tableau de caractere est "+tableauDeChar.length);
+
+        //---------------Les ellipses ou varargs-------------------------//
+
+      /*
+        Passager passager1=new Passager();
+        passager1.nom="Jobs";
+        passager1.prenom="Steve";
+
+        Ville depart=new Ville();
+        depart.nom="Auckland";
+        Ville etape1=new Ville();
+        etape1.nom="Hamiton";
+        Ville etape2=new Ville();
+        etape2.nom="Taupo";
+        Ville etape3=new Ville();
+        etape3.nom="Wellington";
+
+        Ville[] villeEtape=new Ville[3];
+        villeEtape[0]=etape1;
+        villeEtape[1]=etape2;
+        villeEtape[2]=etape3;
+        peugeot206.transporter(passager1,depart, villeEtape);
+     */
+        //Depuis JAVA 5//
+
+        Passager passager1=new Passager();
+        passager1.nom="Jobs";
+        passager1.prenom="Steve";
+        Ville depart=new Ville();
+        depart.nom="Auckland";
+        Ville etape1=new Ville();
+        etape1.nom="Hamiton";
+        Ville etape2=new Ville();
+        etape2.nom="Taupo";
+        Ville etape3=new Ville();
+        etape3.nom="Wellington";
+
+
+        peugeot206.transporter(passager1, depart, etape1, etape2, etape3 );
     }
 }

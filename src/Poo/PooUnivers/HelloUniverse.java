@@ -48,6 +48,20 @@ public class HelloUniverse {
         vaisseauMonde.blindage = 4784;
         vaisseauMonde.resistanceDuBouclier = 30;
 
+        Vaisseau chasseur2 = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
+        chasseur2.nbPassagers = 4;
+        chasseur2.blindage = 156;
+        chasseur2.resistanceDuBouclier = 2;
+        Vaisseau chasseur3 = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
+        chasseur3.nbPassagers = 5;
+        chasseur3.blindage = 156;
+        chasseur3.resistanceDuBouclier = 2;
+        Vaisseau cargo2 = new VaisseauCivil(TypeVaisseau.CARGO);
+        cargo2.nbPassagers = 10001;
+        cargo2.blindage = 1520;
+        cargo2.resistanceDuBouclier = 20;
+        terre.accueillirVaisseaux(chasseur2,chasseur3,cargo2);
+
         Scanner sc = new Scanner(System.in);
         boolean recommencer = true;
         while (recommencer) {
@@ -96,7 +110,7 @@ public class HelloUniverse {
             int tonnageSouhaite = sc.nextInt();
 
             if (planeteSelectionnee.restePlaceDisponible()) {
-                planeteSelectionnee.accueillirVaisseau(vaisseauSelectionne);
+                planeteSelectionnee.accueillirVaisseaux(vaisseauSelectionne);
                 System.out.println("Le vaisseau a rejeté : " + vaisseauSelectionne.emporterCargaison(tonnageSouhaite) + " tonnes.");
             } else {
                 System.out.println("Le vaisseau ne peut pas se poser sur la planète par manque de place dans la baie.");

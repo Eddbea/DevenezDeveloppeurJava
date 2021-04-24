@@ -2,6 +2,6 @@ package Poo.PooUnivers;
 
 public interface Habitable {
 
-   void accueillirVaisseau(Vaisseau nouveauVaisseau);
+   void accueillirVaisseaux(Vaisseau...vaisseau);
 
 }
