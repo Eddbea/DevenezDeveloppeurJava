@@ -2,8 +2,20 @@ package Poo.pooVehicules;
 
 public class HelloWorld {
 
+    int unAttribut=5;
+    void quelqueChose(){
+
+        System.out.println("QuelqueChose");
+    }
+
+
     public static void main(String[] args) {
 
+        HelloWorld hw=new HelloWorld();
+        System.out.println(hw.unAttribut);
+        hw.quelqueChose();
+
+        System.out.println("Hello "+args[0]);
 
         // (Vehicule(VehiculeAMoteur voitureDeMichel() = new Voiture("Jaune");
 
