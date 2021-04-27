@@ -65,7 +65,7 @@ public class HelloUniverse {
         Scanner sc = new Scanner(System.in);
         boolean recommencer = true;
         while (recommencer) {
-            System.out.println("Quel vaisseau souhaitez vous manipuler​ : " + TypeVaisseau.CHASSEUR.name() + ", " + TypeVaisseau.FREGATE.name() + ", " + TypeVaisseau.CROISEUR.name() + ", " + TypeVaisseau.CARGO.name() + " ou " + TypeVaisseau.VAISSEAUMONDE.name() + " ?");
+            System.out.println("Quel vaisseau souhaitez vous manipuler : " + TypeVaisseau.CHASSEUR.name() + ", " + TypeVaisseau.FREGATE.name() + ", " + TypeVaisseau.CROISEUR.name() + ", " + TypeVaisseau.CARGO.name() + " ou " + TypeVaisseau.VAISSEAUMONDE.name() + " ?");
             String typeVaisseauString = sc.nextLine();
             TypeVaisseau typeVaisseau = TypeVaisseau.valueOf(typeVaisseauString);
             Vaisseau vaisseauSelectionne = null;
@@ -109,7 +109,7 @@ public class HelloUniverse {
             System.out.println("Quel tonnage souhaitez-vous emporter ?");
             int tonnageSouhaite = sc.nextInt();
 
-            if (planeteSelectionnee.restePlaceDisponible()) {
+            if (planeteSelectionnee.restePlaceDisponible(vaisseauSelectionne)) {
                 planeteSelectionnee.accueillirVaisseaux(vaisseauSelectionne);
                 System.out.println("Le vaisseau a rejeté : " + vaisseauSelectionne.emporterCargaison(tonnageSouhaite) + " tonnes.");
             } else {

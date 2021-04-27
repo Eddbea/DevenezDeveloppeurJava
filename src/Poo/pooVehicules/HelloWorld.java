@@ -17,6 +17,29 @@ public class HelloWorld {
 
         System.out.println("Hello "+args[0]);
 
+
+        int [][] tableauEntier = new int[5][3];
+        tableauEntier[1][2]=12;
+        System.out.println("Tableau?");
+        for(int col=0;col<tableauEntier.length;col++){
+            for(int lignes=0;lignes<tableauEntier[col].length;lignes++){
+                System.out.println("L'element contenu a la position "+col+","+lignes+" vaut "+tableauEntier[col][lignes]);
+            }
+        }
+
+/*      char[][][][] tableauChar = new char[5][3][10][2];
+        tableauChar[1][2][6][1]='a';
+        for(int col=0;col<tableauEntier.length;col++){
+            for(int lignes=0;lignes<tableauEntier[col].length;lignes++) {
+                for (int col2 = 0; col2 < tableauEntier.length; col2++) {
+                    for (int lignes2 = 0; lignes2 < tableauEntier[col2].length; lignes2++) {
+                        System.out.println("L'element contenu a la position "+col+","+lignes+","+col2+","+lignes2+" vaut "+tableauChar[col][lignes][col2][lignes2]);
+                    }
+                }
+            }
+        }
+
+*/
         // (Vehicule(VehiculeAMoteur voitureDeMichel() = new Voiture("Jaune");
 
 

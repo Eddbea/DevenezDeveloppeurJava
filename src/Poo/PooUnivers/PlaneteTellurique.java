@@ -2,30 +2,48 @@ package Poo.PooUnivers;
 
 public class PlaneteTellurique extends Planete implements Habitable {
 
-    Vaisseau[] vaisseauxAccostes;
+    Vaisseau[][] baieAccostage;
     int totalVisiteurs;
 
-    public PlaneteTellurique(String nom, int nbPlacesBaie) {
+    public PlaneteTellurique(String nom, int tailleBaie) {
         super(nom);
-        vaisseauxAccostes = new Vaisseau[nbPlacesBaie];
+        baieAccostage = new Vaisseau[tailleBaie][tailleBaie];
     }
 
-    boolean restePlaceDisponible() {
-        for (int i = 0; i < vaisseauxAccostes.length; i++) {
-            if (vaisseauxAccostes[i] == null) {
+    boolean restePlaceDisponible(Vaisseau vaisseau) {
+
+        int indexZone=0;
+
+        //if(vaisseau instanceof VaisseauDeGuerre)
+        switch (vaisseau.type){
+            case CARGO:
+            case VAISSEAUMONDE:
+                indexZone=1;
+        }
+
+        for (int index = 0; index < baieAccostage[indexZone].length; index++) {
+            if (baieAccostage[indexZone][index] == null) {
                 return true;
             }
         }
         return false;
     }
 
+
     public void accueillirVaisseaux(Vaisseau... vaisseaux) {
 
-        for (int i = 0; i > vaisseaux.length; i++) {
+        for(int i=0;i<vaisseaux.length;i++){
 
-            for (int index = 0; index < vaisseauxAccostes.length; i++) {
-                if (vaisseauxAccostes[index] == null) {
-                    vaisseauxAccostes[index] = vaisseaux[i];
+        int indexZone=0;
+        switch (vaisseaux[i].type){
+            case CARGO:
+            case VAISSEAUMONDE:
+                indexZone=1;
+        }
+
+        for (int index = 0; index < baieAccostage[indexZone].length; index++) {
+                if (baieAccostage[indexZone][index] == null) {
+                    baieAccostage[indexZone][index] = vaisseaux[i];
                     break;
                 }
             }
