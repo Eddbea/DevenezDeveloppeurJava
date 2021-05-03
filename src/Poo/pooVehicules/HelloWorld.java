@@ -1,5 +1,8 @@
 package Poo.pooVehicules;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HelloWorld {
 
     int unAttribut=5;
@@ -11,35 +14,7 @@ public class HelloWorld {
 
     public static void main(String[] args) {
 
-        HelloWorld hw=new HelloWorld();
-        System.out.println(hw.unAttribut);
-        hw.quelqueChose();
 
-        System.out.println("Hello "+args[0]);
-
-
-        int [][] tableauEntier = new int[5][3];
-        tableauEntier[1][2]=12;
-        System.out.println("Tableau?");
-        for(int col=0;col<tableauEntier.length;col++){
-            for(int lignes=0;lignes<tableauEntier[col].length;lignes++){
-                System.out.println("L'element contenu a la position "+col+","+lignes+" vaut "+tableauEntier[col][lignes]);
-            }
-        }
-
-/*      char[][][][] tableauChar = new char[5][3][10][2];
-        tableauChar[1][2][6][1]='a';
-        for(int col=0;col<tableauEntier.length;col++){
-            for(int lignes=0;lignes<tableauEntier[col].length;lignes++) {
-                for (int col2 = 0; col2 < tableauEntier.length; col2++) {
-                    for (int lignes2 = 0; lignes2 < tableauEntier[col2].length; lignes2++) {
-                        System.out.println("L'element contenu a la position "+col+","+lignes+","+col2+","+lignes2+" vaut "+tableauChar[col][lignes][col2][lignes2]);
-                    }
-                }
-            }
-        }
-
-*/
         // (Vehicule(VehiculeAMoteur voitureDeMichel() = new Voiture("Jaune");
 
 
@@ -347,5 +322,66 @@ public class HelloWorld {
 
 
         peugeot206.transporter(passager1, depart, etape1, etape2, etape3 );
+
+        HelloWorld hw=new HelloWorld();
+        System.out.println(hw.unAttribut);
+        hw.quelqueChose();
+
+        System.out.println("Hello "+args[0]);
+
+
+        int [][] tableauEntier = new int[5][3];
+        tableauEntier[1][2]=12;
+        System.out.println("Tableau?");
+        for(int col=0;col<tableauEntier.length;col++) {
+            for (int lignes = 0; lignes < tableauEntier[col].length; lignes++) {
+                System.out.println("L'element contenu a la position " + col + "," + lignes + " vaut " + tableauEntier[col][lignes]);
+            }
+
+
+/*      char[][][][] tableauChar = new char[5][3][10][2];
+        tableauChar[1][2][6][1]='a';
+        for(int col=0;col<tableauEntier.length;col++){
+            for(int lignes=0;lignes<tableauEntier[col].length;lignes++) {
+                for (int col2 = 0; col2 < tableauEntier.length; col2++) {
+                    for (int lignes2 = 0; lignes2 < tableauEntier[col2].length; lignes2++) {
+                        System.out.println("L'element contenu a la position "+col+","+lignes+","+col2+","+lignes2+" vaut "+tableauChar[col][lignes][col2][lignes2]);
+                    }
+                }
+            }
+        }
+*/
+
+        }
+
+
+///////--------------------------LES COLLECTIONS-------------------------------------------------------//
+
+
+        // --Les "List"--
+
+        //ArrayList list=new ArrayList();
+
+
+        Voiture golf4=new Voiture();
+        Voiture golf6=new Voiture();
+
+        List<Voiture> list=new ArrayList();
+
+        golf4.couleur="Grise";
+        list.add(golf4); //index 0
+        list.add(golf6);
+        //list.add(3); //index 1 pas un int mais un Int
+        list.add(golf4); //index 2, possible de dupliquer des elements
+
+
+        //list.remove(golf4); //va supprimer le premier objet recontre dans la list
+
+        //list.add(3); //index 0 pas un int mais un Int
+        list.add(golf4); //index 1, possible de dupliquer des elements
+
+        Voiture o=list.get(0);
+        //System.out.println("L'objet à l'index 0 est "+o+".");
+        System.out.println("La voiture à l'index 0 est de couleur "+o.couleur+".");
     }
 }
