@@ -10,12 +10,11 @@ public class PlaneteTellurique extends Planete implements Habitable {
         baieAccostage = new Vaisseau[tailleBaie][tailleBaie];
     }
 
-    boolean restePlaceDisponible(Vaisseau vaisseau) {
+    boolean restePlaceDisponible(TypeVaisseau typeVaisseau) {
 
         int indexZone=0;
-
         //if(vaisseau instanceof VaisseauDeGuerre)
-        switch (vaisseau.type){
+        switch (typeVaisseau){
             case CARGO:
             case VAISSEAUMONDE:
                 indexZone=1;
