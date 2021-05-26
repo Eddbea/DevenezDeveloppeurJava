@@ -2,51 +2,54 @@ package Poo.PooUnivers;
 
 public class PlaneteTellurique extends Planete implements Habitable {
 
-    int[] baieAccostage = new int[0];
+    Vaisseau[][] baieAccostage;
+    int totalVisiteurs;
 
-    PlaneteTellurique(String nom) {
+    public PlaneteTellurique(String nom, int tailleBaie) {
         super(nom);
+        baieAccostage = new Vaisseau[tailleBaie][tailleBaie];
     }
 
-    PlaneteTellurique(String nom, int[] baieAccostage) {
-        super(nom);
-        this.baieAccostage = baieAccostage;
-    }
+    boolean restePlaceDisponible(TypeVaisseau typeVaisseau) {
 
-    @Override
-    public void accueillirVaisseau(Vaisseau vaisseau) {
-
-        if (vaisseau instanceof VaisseauDeGuerre) {
-            ((VaisseauDeGuerre) vaisseau).desactiverArmes();
+        int indexZone=0;
+        //if(vaisseau instanceof VaisseauDeGuerre)
+        switch (typeVaisseau){
+            case CARGO:
+            case VAISSEAUMONDE:
+                indexZone=1;
         }
-        nbTotalHumains = nbTotalHumains + vaisseau.nbPassagers;
-        if (vaisseauActuellementAcoste == null) {
-            System.out.println("Aucun vaisseau ne s'en va");
-        } else {
-            System.out.println("Un vaisseau de type " + vaisseauActuellementAcoste.type + " doit s'en aller");
-        }
-        vaisseauActuellementAcoste = vaisseau;
-    }
 
-    @Override
-    public boolean restePlaceDisponible(int nbVaisseauArrivant) {
-        System.out.println("Bonjour, y a t il de la place disponible chez vous ?");
-        System.out.println("-Bonjour, nous avons : " +baieAccostage.length+ " place(s) disponible(s)");
-        boolean disponible=false;
-        System.out.println("-Affichage du nombre de vaisseau qui arrive(nt) : " +nbVaisseauArrivant+ " vaisseau(x)");
-        int nbBaie=baieAccostage.length;
-        int placeDisponible=0;
-        placeDisponible=nbBaie-nbVaisseauArrivant;
-            if (placeDisponible<=0) {
-                placeDisponible=0;
-                System.out.println("-Affichage de la place disponible : " +placeDisponible);
-                System.out.println("-Le vaisseau ne peut pas se poser sur la planete par manque de place dans la baie");
+        for (int index = 0; index < baieAccostage[indexZone].length; index++) {
+            if (baieAccostage[indexZone][index] == null) {
+                return true;
             }
-            else
-                {
-                  disponible=true;
-                  System.out.println("-Le nombre de place disponible est de : " +placeDisponible);
         }
-    return disponible;
+        return false;
+    }
+
+
+    public void accueillirVaisseaux(Vaisseau... vaisseaux) {
+
+        for(int i=0;i<vaisseaux.length;i++){
+
+        int indexZone=0;
+        switch (vaisseaux[i].type){
+            case CARGO:
+            case VAISSEAUMONDE:
+                indexZone=1;
+        }
+
+        for (int index = 0; index < baieAccostage[indexZone].length; index++) {
+                if (baieAccostage[indexZone][index] == null) {
+                    baieAccostage[indexZone][index] = vaisseaux[i];
+                    break;
+                }
+            }
+            if (vaisseaux[i] instanceof VaisseauDeGuerre) {
+                ((VaisseauDeGuerre) vaisseaux[i]).desactiverArmes();
+            }
+            totalVisiteurs += vaisseaux[i].nbPassagers;
+        }
     }
 }

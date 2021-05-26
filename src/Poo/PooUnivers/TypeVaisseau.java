@@ -2,11 +2,11 @@ package Poo.PooUnivers;
 
 public enum TypeVaisseau {
 
-    CHASSEUR("Chasseur"), FREGATE("Fregate"), CROISEUR("croiseur"), CARGO("Cargo"), VAISSEAUMONDE("Vaisseau-Monde");
+    CHASSEUR("Chasseur"), FREGATE("Frégate"), CROISEUR("Croiseur"), CARGO("Cargo"), VAISSEAUMONDE("Vaisseau-Monde");
+    public String nom;
 
-    String nom;
-
-    TypeVaisseau(String nom){
+    TypeVaisseau(String nom) {
         this.nom = nom;
     }
+
 }

@@ -1,16 +1,11 @@
 package Poo.PooUnivers;
 
 public class Atmosphere {
-
-    Float tauxHydrogene;
-    Float tauxMethane;
-    Float tauxAzote;
     Float tauxHelium;
+    Float tauxHydrogene;
+    Float tauxAzote;
     Float tauxArgon;
-    Float tauxDioxydeCarbone;
+    Float tauxDioxydeDeCarbone;
     Float tauxSodium;
-    Float tauxNitrogen;
-    Float tauxOxygen;
-    Float otherGases;
-
+    Float tauxMethane;
 }

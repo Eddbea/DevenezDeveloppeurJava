@@ -1,24 +1,21 @@
 package Poo.PooUnivers;
 
-public abstract class Vaisseau implements Habitable{
-
+public abstract class Vaisseau {
+    TypeVaisseau type;
     int nbPassagers;
+    int resistanceDuBouclier;
     int blindage;
-    int resistanceBouclier;
-    int quantiteRejetee;
     int tonnageMax;
     int tonnageActuel;
-    public TypeVaisseau type;
-
 
     void activerBouclier(){
-        System.out.println("Activation du bouclier d'un vaisseau de type " +type+ ".");
+        System.out.println("Activation du bouclier d'un vaisseau de type "+type.nom+".");
     }
 
-    void desactiverBouclier() {
-        System.out.println("Desactivation du bouclier d'un vaisseau de type " +type+ ".");
+    void desactiverBouclier(){
+        System.out.println("Désactivation du bouclier d'un vaisseau de type "+type.nom+".");
     }
 
-    abstract int emporterCargaison(int cargaison);
+    abstract int emporterCargaison(int tonnage);
 
 }

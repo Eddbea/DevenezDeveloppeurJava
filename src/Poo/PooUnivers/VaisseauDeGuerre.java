@@ -1,75 +1,63 @@
 package Poo.PooUnivers;
 
-public class VaisseauDeGuerre extends Vaisseau{
+public class VaisseauDeGuerre extends Vaisseau {
 
     boolean armesDesactivees;
 
-    VaisseauDeGuerre(TypeVaisseau typeVaisseau){
-        this.type =type;
-
-        if(type==TypeVaisseau.CHASSEUR){
-            tonnageMax = 0;
+    public VaisseauDeGuerre(TypeVaisseau type){
+        this.type=type;
+        if (type==TypeVaisseau.CHASSEUR){
+            tonnageMax=0;
         }
         else if (type==TypeVaisseau.FREGATE){
-            tonnageMax = 50;
+            tonnageMax=50;
         }
         else if (type==TypeVaisseau.CROISEUR){
-            tonnageMax = 100;
+            tonnageMax=100;
+        }
+
+    }
+
+    void attaque(Vaisseau vaisseauCible, String arme, int duree) {
+        if (armesDesactivees) {
+            System.out.println("Attaque impossible, l'armement est désactivé");
+        } else {
+            System.out.println("Un vaisseau de type " + type.nom + " attaque un vaisseau de type " + vaisseauCible.type.nom + " en utilisant l'arme " + arme + " pendant " + duree + " minutes.");
+            vaisseauCible.resistanceDuBouclier = 0;
+            vaisseauCible.blindage = vaisseauCible.blindage / 2;
         }
     }
 
-    void attaque(Vaisseau vaisseauAttaque, String armeUtilisee, int dureeAttaque){
-        if(armesDesactivees) {
-            System.out.println("Attaque impossible, l'armement est desactive");
-        }
-        else {
-            System.out.println("Un vaisseau de type " + type + " attaque un vaisseau de type " + vaisseauAttaque.type + " en utilisant l'arme " + armeUtilisee + " pendant " + dureeAttaque + " minutes");
-            vaisseauAttaque.resistanceBouclier = 0;
-            vaisseauAttaque.blindage = vaisseauAttaque.blindage / 2;
-        }
-    }
-
-    void desactiverArmes (){
-        System.out.println("Desactivation des armes d'un vaisseau de type " +type+ ".");
+    void desactiverArmes() {
+        System.out.println("Désactivation des armes d'un vaisseau de type " + type.nom);
         armesDesactivees = true;
     }
+
     void activerBouclier(){
+        System.out.println("Activation du bouclier d'un vaisseau de type "+type.nom+".");
         desactiverArmes();
-        super.activerBouclier();
     }
 
-    @Override
-    int emporterCargaison(int cargaison) {
-        if(type==TypeVaisseau.CHASSEUR){
-            return cargaison;
+    int emporterCargaison(int tonnage) {
+        if (type==TypeVaisseau.CHASSEUR){
+            return tonnage;
         }
         else {
-            if(nbPassagers<12){
-                return cargaison;
+            if (nbPassagers<12){
+                return tonnage;
             }
             else {
-                int tonnagePassagers = 2*nbPassagers;
-                int tonnageRestant = tonnageMax - tonnageActuel;
-                int tonnageAConsiderer = (tonnagePassagers<tonnageRestant ? tonnagePassagers : tonnageRestant);
-                if(cargaison>tonnageAConsiderer){
-                    tonnageActuel = tonnageMax;
-                    return cargaison - tonnageAConsiderer;
+                int tonnagePassagers=nbPassagers*2;
+                int tonnageRestant=tonnageMax-tonnageActuel;
+                int tonnageAConsiderer=(tonnagePassagers<tonnageRestant ? tonnagePassagers : tonnageRestant);
+                if (tonnage>tonnageAConsiderer){
+                    tonnageActuel=tonnageMax;
+                    return tonnage-tonnageAConsiderer;
                 }
-                else {
-                    tonnageActuel = tonnageActuel + cargaison; // ou on peut ecrire : tonnageActuel+=cargaison;//
-                    return 0;
-                }
+                tonnageActuel+=tonnage;
+                return 0;
             }
         }
-    }
 
-    @Override
-    public void accueillirVaisseau(Vaisseau vaisseau) {
-
-    }
-
-    @Override
-    public boolean restePlaceDisponible(int nbPassagerArrivant) {
-        return false;
     }
 }
