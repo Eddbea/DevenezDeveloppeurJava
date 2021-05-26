@@ -1,7 +1,6 @@
 package Poo.pooVehicules;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class HelloWorld {
 
@@ -218,7 +217,6 @@ public class HelloWorld {
         golf.rapportCourant++;
 
 
-
 //--------------La coversion de types--------------------//
 
 
@@ -383,5 +381,38 @@ public class HelloWorld {
         Voiture o=list.get(0);
         //System.out.println("L'objet à l'index 0 est "+o+".");
         System.out.println("La voiture à l'index 0 est de couleur "+o.couleur+".");
+
+        // --Les "Set"-- Ne peut contenir 2 elements identiques
+        Voiture peugeot207 = new Voiture("noir");
+
+        Set<Voiture> set = new HashSet<>();
+        set.add(peugeot206);
+        set.add(peugeot207);
+        set.add(peugeot206); // puisque theoriquement impossible de creer des doublons dans un "set", Java va l'ignorer
+
+        for (Voiture voiture : set){
+            System.out.println(voiture.couleur);
+        }
+
+        //Ou methode ancienne :
+
+        Iterator<Voiture> it = set.iterator();
+        Voiture v = it.next(); // selectionne/itere/affiche la suivante, dans ce cas la premiere
+        System.out.println(v.couleur);
+
+        //"it.hasNext()" renvoie vrai??? si un element est present lors de la prochaine iteration
+        //En general on ecrit :
+            while(it.hasNext()){
+                Voiture vo = it.next();
+                System.out.println(vo.couleur);
+            }
+
+
+        System.out.println(set.size()); // ".size" nous donne la taille du tableau "set", ici le doublon est ignoré
+
+
+        // -- "foreach" -- itérer sur une collection (voir ci-dessus)
+
+
     }
 }
