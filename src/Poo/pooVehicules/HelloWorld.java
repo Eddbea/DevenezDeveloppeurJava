@@ -414,5 +414,8 @@ public class HelloWorld {
         // -- "foreach" -- itérer sur une collection (voir ci-dessus)
 
 
+
+                //----NothingI = branche Jnesis par default--
+
     }
 }
