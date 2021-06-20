@@ -383,6 +383,7 @@ public class HelloWorld {
         System.out.println("La voiture à l'index 0 est de couleur "+o.couleur+".");
 
         // --Les "Set"-- Ne peut contenir 2 elements identiques
+
         Voiture peugeot207 = new Voiture("noir");
 
         Set<Voiture> set = new HashSet<>();
@@ -402,6 +403,7 @@ public class HelloWorld {
 
         //"it.hasNext()" renvoie vrai??? si un element est present lors de la prochaine iteration
         //En general on ecrit :
+
             while(it.hasNext()){
                 Voiture vo = it.next();
                 System.out.println(vo.couleur);
